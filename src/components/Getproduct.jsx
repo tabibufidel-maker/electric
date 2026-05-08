@@ -32,6 +32,8 @@ const Getproduct = () => {
     }
   }
 
+  
+
   useEffect(() => {
     getproducts()
   }, [])
