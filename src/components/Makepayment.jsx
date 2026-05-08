@@ -30,32 +30,33 @@ const Makepayment = () => {
   }
   return (
     <div className='container py-5'>
-  <div className="row justify-content-center">
-    <div className="col-md-5 card shadow-sm border-0 p-4 text-center" style={{ borderRadius: '15px' }}>
-      <h2 className="text-success fw-bold mb-3">Lipa na M-Pesa</h2>
-      
-      <img src={img_url + product.product_photo} alt="" className="img-fluid rounded mb-2" style={{ height: '100px' }} />
-      <p className="mb-1 fw-bold">{product.product_name}</p>
-      <h4 className="text-success mb-4">KES {product.product_cost}</h4>
+      <div className="row justify-content-center">
+        <div className="col-md-5 card shadow-sm border-0 p-4 text-center" style={{ borderRadius: '15px' }}>
+          <h2 className="text-success fw-bold mb-3">Lipa na M-Pesa</h2>
+          <div className="d-flex justify-content-center mb-3">
+            <img src={img_url + product.product_photo} alt={product?.product_name || 'Product'} className="payment-image shadow-sm" />
+          </div>
+          <p className="mb-1 fw-bold">{product.product_name}</p>
+          <h4 className="text-success mb-4">KES {product.product_cost}</h4>
 
-      <form onSubmit={submit}>
-        {error}
-        {message}
-        <input 
-          type="tel" 
-          placeholder='Enter M-Pesa Number (254...)' 
-          className='form-control form-control-lg mb-3 text-center border-success' 
-          value={phone} 
-          onChange={(e) => setPhone(e.target.value)} 
-          required 
-        />
-        
-       <button type='submit' className='btn btn-success'>Make payment</button>
-      
-      </form>
+          <form onSubmit={submit}>
+            {error}
+            {message}
+            <input
+              type="tel"
+              placeholder='Enter M-Pesa Number (254...)'
+              className='form-control form-control-lg mb-3 text-center border-success'
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              required
+            />
+
+            <button type='submit' className='btn btn-success'>Make payment</button>
+
+          </form>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
   )
 }
 
